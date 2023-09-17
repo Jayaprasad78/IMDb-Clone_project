@@ -14,3 +14,6 @@ By means of this page users can get UI to access and manipulate their favourite 
 # Short description of this App:
 
 The app has been implemented using vanilla JavaScript, and it will interact with the OMDB API to fetch movie data. The user interface will be designed using CSS, and it uses a CSS framework like Bootstrap to assist with styling as desired. The app's data, including the list of favourite movies, will be stored in the browser's local storage to make it persistent across sessions.
+
+Thank you
+Jayaprasad
