@@ -1,3 +1,4 @@
+// Define your API key for the OMDB API
 const apiKey = '1b1b60c0';
 
 // Function to search for movies
@@ -7,18 +8,27 @@ async function searchMovies(query) {
     return data.Search || [];
 }
 
-// Function to add a movie to favourites
-async function addToFavourites(event) {
+// Function to add a movie to favorites
+async function addToFavorites(event) {
+    // Get the IMDb ID from the clicked element's dataset
     const imdbID = event.target.dataset.imdbid;
+    
+    // Fetch movie details using IMDb ID
     const movie = await getMovieDetails(imdbID);
+    
     if (movie) {
-        const favouritesList = JSON.parse(localStorage.getItem('favourites')) || [];
-        if (!favouritesList.some(m => m.imdbID === movie.imdbID)) {
-            favouritesList.push(movie);
-            localStorage.setItem('favourites', JSON.stringify(favouritesList));
-            alert(`${movie.Title} has been added to your favourites!`);
+        // Retrieve the user's favorites from localStorage, or create an empty array if it doesn't exist
+        const favoritesList = JSON.parse(localStorage.getItem('favorites')) || [];
+
+        // Check if the movie is already in the favorites
+        if (!favoritesList.some(m => m.imdbID === movie.imdbID)) {
+            // If not, add it to the favorites
+            favoritesList.push(movie);
+            localStorage.setItem('favorites', JSON.stringify(favoritesList));
+            alert(`${movie.Title} has been added to your favorites!`);
         } else {
-            alert(`${movie.Title} is already in your favourites!`);
+            // If it's already in favorites, show a message
+            alert(`${movie.Title} is already in your favorites!`);
         }
     }
 }
@@ -28,6 +38,7 @@ function displaySearchResults(results) {
     const searchResultsContainer = document.getElementById('searchResults');
     searchResultsContainer.innerHTML = '';
 
+    // Iterate through search results and create cards for each movie
     results.forEach(movie => {
         const movieCard = document.createElement('div');
         movieCard.classList.add('card', 'col-md-4', 'mb-4');
@@ -35,26 +46,31 @@ function displaySearchResults(results) {
             <img src="${movie.Poster}" class="card-img-top" alt="${movie.Title}">
             <div class="card-body">
                 <h5 class="card-title">${movie.Title}</h5>
-                <button class="btn btn-primary btn-sm favourite-button" data-imdbid="${movie.imdbID}">Add to Favourites</button>
+                <button class="btn btn-primary btn-sm favorite-button" data-imdbid="${movie.imdbID}">Add to Favorites</button>
                 <a href="movie.html?id=${movie.imdbID}" class="btn btn-secondary btn-sm more-button">More</a>
             </div>
         `;
         searchResultsContainer.appendChild(movieCard);
     });
 
-    const favouriteButtons = document.querySelectorAll('.favourite-button');
-    favouriteButtons.forEach(button => {
-        button.addEventListener('click', addToFavourites);
+    // Add click event listeners to the "Add to Favorites" buttons
+    const favoriteButtons = document.querySelectorAll('.favorite-button');
+    favoriteButtons.forEach(button => {
+        button.addEventListener('click', addToFavorites);
     });
 }
 
 // Event listener for the Search Button
 const searchButton = document.getElementById('searchButton');
 searchButton.addEventListener('click', function () {
+    // Get the search query from the input element
     const query = document.getElementById('searchInput').value.trim();
+    
     if (query.length > 0) {
+        // Perform a movie search using the query
         searchMovies(query)
             .then(results => {
+                // Display the search results
                 displaySearchResults(results);
                 // Store the search results in LocalStorage
                 localStorage.setItem('searchResults', JSON.stringify(results));
@@ -62,8 +78,6 @@ searchButton.addEventListener('click', function () {
             .catch(error => console.error('Error searching movies:', error));
     }
 });
-
-
 
 // Function to get movie details by IMDb ID
 async function getMovieDetails(imdbID) {
@@ -78,10 +92,11 @@ if (previousSearchResults && previousSearchResults.length > 0) {
     displaySearchResults(previousSearchResults);
 }
 
+// Elements related to displaying movie quotations
 const quoteText = document.getElementById('quoteText');
 const quoteSpeed = 200; // Time (in milliseconds) for each word to appear
 const movieQuotations = [
-    "I feel the need... the need for speed. - Top Gun",
+ "I feel the need... the need for speed. - Top Gun",
 "Houston, we have a problem. - Apollo 13",
 "You talking to me? - Taxi Driver",
 "You had me at 'hello.' - Jerry Maguire",
