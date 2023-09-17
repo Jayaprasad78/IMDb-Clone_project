@@ -1,0 +1,48 @@
+<!DOCTYPE html> <!-- This declaration defines the document type and version of HTML. -->
+<html lang="en"> <!-- This defines the document's language as English. -->
+<head>
+    <meta charset="UTF-8"> <!-- This sets the character encoding to UTF-8, which supports various characters. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- This sets the viewport for responsive design. -->
+    <title>IMDB</title> <!-- This sets the document's title, which appears in the browser tab. -->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css"> <!-- These lines link to external CSS stylesheets. -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%2210 0 100 100%22><text y=%22.90em%22 font-size=%2290%22>🎬</text></svg>">
+    <!-- This sets the favicon (icon displayed in the browser tab) as a movie emoji. -->
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg"> <!-- This is a Bootstrap navigation bar. -->
+        <div class="container"> <!-- This is a container for the navigation bar content. -->
+            <a class="navbar-brand" href="index.html">📽🎥🍿IMDB🍿🎥📽</a> <!-- This is the website's title. -->
+            <div class="collapse navbar-collapse"> <!-- This part of the navigation bar collapses on small screens. -->
+                <ul class="navbar-nav ml-auto"> <!-- This is an unordered list for navigation links on the right. -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a> <!-- Home link. -->
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="favourites.html">✨Favourites✨</a> <!-- Favourites link. -->
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <br/>
+    <div class="quote-container">
+        <p id="quoteText"></p> <!-- Placeholder for a quote to be displayed dynamically. -->
+    </div>
+
+    <div class="container mt-5">
+        <h1 class="mb-4">IMDB</h1> <!-- Main heading of the page. -->
+        <div class="form-group">
+            <input type="text" id="searchInput" class="form-control" placeholder="Search for a movie...">
+            <!-- Input field for movie search. -->
+            <button id="searchButton" class="btn btn-primary mt-2">Search</button>
+            <!-- Search button. -->
+        </div>
+        <div id="searchResults" class="row mt-4"></div> <!-- Container for displaying search results. -->
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script> <!-- Link to an external JavaScript file. -->
+</body>
+</html>

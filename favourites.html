@@ -1,0 +1,38 @@
+<!DOCTYPE html> <!-- Declaration of the document type. -->
+<html lang="en"> <!-- Specifies the document's language as English. -->
+<head>
+    <meta charset="UTF-8"> <!-- Sets the character encoding to UTF-8. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Defines the viewport for responsive design. -->
+    <title>Favourites</title> <!-- Sets the title of the page. -->
+    <!-- Add Bootstrap CSS link or any other styling -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css"> <!-- Links to an external CSS stylesheet. -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%2210 0 100 100%22><text y=%22.90em%22 font-size=%2290%22>🎬</text></svg>">
+    <!-- Sets the favicon as a movie emoji. -->
+    <!-- Add a link to your separate favorites.js file with the 'defer' attribute. -->
+    <script src="favorites.js" defer></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand"> <!-- Bootstrap navigation bar. -->
+        <div class="container"> <!-- Container for navigation content. -->
+            <a class="navbar-brand" href="#">📽🎥🍿IMDB🍿🎥📽</a> <!-- Website title. -->
+            <ul class="navbar-nav ml-auto"> <!-- Unordered list for navigation links. -->
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a> <!-- Home link. -->
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="favourites.html">✨Favourites✨</a> <!-- Active Favourites link. -->
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h1 class="mb-4">List of Your Favourite Movies</h1> <!-- Main heading of the page. -->
+        <div class="row" id="favouritesList">
+            <!-- The dynamically generated favorites list will be displayed here. -->
+        </div>
+    </div>
+</body>
+</html>
