@@ -81,13 +81,16 @@ if (previousSearchResults && previousSearchResults.length > 0) {
 const quoteText = document.getElementById('quoteText');
 const quoteSpeed = 200; // Time (in milliseconds) for each word to appear
 const movieQuotations = [
-    "The greatest trick the devil ever pulled was convincing the world he didn't exist. - The Usual Suspects",
-    "May the Force be with you. - Star Wars",
-    "Here's looking at you, kid. - Casablanca",
-    "I'll be back. - The Terminator",
-    "Why so serious? - The Dark Knight",
-    "You can't handle the truth! - A Few Good Men",
-    "There's no place like home. - The Wizard of Oz",
+    "I feel the need... the need for speed. - Top Gun"
+"Houston, we have a problem. - Apollo 13"
+"You talking to me? - Taxi Driver"
+"You had me at 'hello.' - Jerry Maguire"
+"Here's Johnny! - The Shining"
+"Keep your friends close, but your enemies closer. - The Godfather Part II"
+"You can't change the wind, but you can adjust your sails. - The Pursuit of Happyness"
+"I'm the king of the world! - Titanic"
+"I see dead people. - The Sixth Sense"
+"Life is like a box of chocolates; you never know what you're gonna get. - Forrest Gump"
 ];
 let currentQuoteIndex = 0;
 
